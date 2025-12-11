@@ -8,18 +8,24 @@ class MeetingCompanionApp:
         self.host = host
         self.port = port
 
-        self.audio_input = gr.Audio(sources="upload", type="filepath")  # Audio input
-        self.output_text = gr.Textbox()  # Text output
+        self.audio_input = gr.Audio(
+            value="assets/sample.mp3"
+            sources="upload",
+            type="filepath",
+            autoplay=False,
+            interactive=True
+        )
+        self.output_text = gr.Textbox()
 
-        self.iface = gr.Interface(
-            fn=transcript_audio, 
-            inputs=audio_input, outputs=output_text, 
+        self.app_interface = gr.Interface(
+            fn=speech_to_text, 
+            inputs=self.audio_input, outputs=self.output_text, 
             title="Audio Transcription App",
             description="Upload the audio file"
         )
 
     def launch_app(self) -> None:
-        self.iface.launch(
-            server_name=self.hhost,
+        self.app_interface.launch(
+            server_name=self.host,
             server_port=self.port
         )

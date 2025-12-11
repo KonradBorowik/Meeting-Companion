@@ -17,3 +17,9 @@ sudo apt install ffmpeg -y
 python -m venv venv
 source venv/bin/activate
 ```
+
+- Launch the app
+
+```bash
+python main.py
+```
