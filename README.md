@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install ffmpeg -y
 ```
 
-- create and activate Python virtualenvironment
+- Create and activate Python virtuale nvironment
 
 ```bash
 python -m venv venv
